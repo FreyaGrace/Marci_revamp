@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marci Metzger – The Ridge Realty Group | Pahrump Realtor</title>
+  <meta name="description" content="Pahrump Realtor – Buy, sell, or invest with confidence. Nearly 3 decades of experience. Call 206‑919‑6886." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+     --bg: #0B0E14;           /* Richer obsidian black */
+  --card: #161A22;         /* Deeper charcoal with elegance */
+  --muted: #B0B6C1;        /* Softer platinum gray */
+  --text: #F8F8F8;         /* Refined ivory white */
+
+  --brand: #142C4F;        /* Deep navy blue – signature */
+  --brand-2: #1E3A66;      /* Darker royal navy for depth */
+
+  --accent: #D9A24E;       /* Metallic gold */
+  --accent-2: #C89B3C;     /* Antique gold */
+  --accent-glow: rgba(217, 162, 78, 0.45); /* Golden glow effect */
+
+  --ring: 0 0 0 3px var(--accent-glow);
+  --radius: 12px;          /* Tighter radius = modern, luxe */
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.65); /* Stronger elegant shadow */
+}
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: radial-gradient(1200px 800px at 80% -10%, #15365a 0%, transparent 60%),
+               radial-gradient(1000px 700px at 10% -10%, #184535 0%, transparent 55%),
+               var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; border-radius: 14px; }
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+
+    /* Header */
+    header { 
+        display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 6%;
+  background-color: #3d5c86; /* Deep navy */
+  border-bottom: 1px solid rgba(230, 237, 30, 0.592);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
+    .brand { display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 700; }
+    .brand img { width: 200px;  /* bigger logo */
+  height: auto;
+  border-radius: 0; /* no rounding for luxury */
+  object-fit: contain;
+  flex-shrink: 0;}
+    .brand span { display: grid; }
+    .brand small { color: var(--muted);font-weight: 500;
+  letter-spacing: .4px;}
+
+    .links { display: flex; gap: 20px; align-items: center; }
+    .links a { padding: 8px 12px; border-radius: 10px; color: var(--text); font-weight: 600; }
+    .links a:hover { color: var(--text); background: rgb(255 255 255 / .06); }
+
+    .cta { display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 1.05rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--bg);
+  box-shadow: 0 6px 20px var(--accent-glow), var(--shadow);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px; }
+ .cta:hover {
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 30px var(--accent-glow), var(--shadow);
+}
+
+.cta:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.cta:focus {
+  outline: none;
+  box-shadow: var(--ring), 0 6px 25px var(--accent-glow);
+}
+
+    /* Hero */
+    .slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slide {
+  min-width: 100%;
+  display: none;
+  text-align: center;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.slide-content {
+  margin-top: 12px;
+  color: var(--text);
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 10px;
+}
+
+.controls button {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  background: var(--accent-2);
+}
+    .hero { position: relative; isolation: isolate; }
+    .hero-wrap { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 36px; padding: 52px 0 28px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; font-weight: 700; background: rgb(255 255 255 / .06); color: var(--muted); border: 1px solid rgb(255 255 255 / .08); }
+    .title { font-size: clamp(2.4rem, 4vw + 1rem, 4rem); line-height: 1.05; margin: 14px 0 12px; font-weight: 800; letter-spacing: -.5px; }
+    .title strong { background: linear-gradient(135deg, #eaf1ff, #b4d1ff 35%, #9de6cd 70%, #ffe1b3); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .sub { color: var(--muted); font-size: 1.05rem; max-width: 64ch; }
+    .hero-cta { display: flex; gap: 14px; margin-top: 18px; flex-wrap: wrap; }
+
+    .card { background: linear-gradient(180deg, rgb(255 255 255 / .06), rgb(255 255 255 / .03)); border: 1px solid rgb(255 255 255 / .08); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; }
+
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 22px; }
+    .stat { padding: 16px; border-radius: 14px; background: rgb(255 255 255 / .04); border: 1px solid rgb(255 255 255 / .06); }
+    .stat b { font-size: 1.6rem; display: block; }
+    .profile { position: relative; }
+    .profile .portrait { aspect-ratio: 1 / 1; object-fit: cover; }
+    .profile .tag { position: absolute; bottom: 12px; left: 12px; background: rgb(0 0 0 / .55); padding: 8px 10px; border-radius: 10px; font-weight: 700; border: 1px solid rgb(255 255 255 / .12); }
+
+    /* Listings */
+    section { padding: 64px 0; }
+    .section-title { font-size: clamp(1.6rem, 1.6vw + 1rem, 2.2rem); margin: 0 0 14px; }
+    .muted { color: var(--muted); }
+    .grid { display: grid; gap: 18px; }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .listing { overflow: hidden; }
+    .listing .meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; }
+    .pill { padding: 6px 10px; background: rgb(255 255 255 / .06); border-radius: 999px; font-weight: 700; font-size: .9rem; color: var(--muted); border: 1px solid rgb(255 255 255 / .08); }
+
+    /* Services */
+    .service { display: grid; gap: 10px; padding: 18px; }
+    .service h3 { margin: 0; }
+
+    /* Gallery */
+    .gallery { gap: 12px; grid-template-columns: repeat(12, 1fr); }
+    .gallery img { height: 100%; width: 100%; object-fit: cover; }
+    .g-span-6 { grid-column: span 6; }
+    .g-span-3 { grid-column: span 3; }
+
+    /* Contact */
+    .contact { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; }
+    form { display: grid; gap: 12px; }
+    input, textarea, select { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgb(255 255 255 / .12); background: rgb(0 0 0 / .35); color: var(--text); outline: none; }
+    input:focus, textarea:focus, select:focus { box-shadow: var(--ring); border-color: rgb(115 177 255 / .45); }
+    button { cursor: pointer; }
+    .btn-secondary { background: rgb(255 255 255 / .06); color: var(--text); padding: 10px 14px; border-radius: 12px; border: 1px solid rgb(255 255 255 / .12); font-weight: 700; }
+    .btn-secondary:hover { background: rgb(255 255 255 / .1); }
+
+    /* Footer */
+    footer { padding: 36px 0 64px; color: var(--muted); border-top: 1px solid rgb(255 255 255 / .06); background: linear-gradient(180deg, transparent, rgb(255 255 255 / .03)); }
+
+    /* Mobile */
+    @media (max-width: 960px){
+      .hero-wrap, .contact { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+      .gallery { grid-template-columns: repeat(6, 1fr); }
+      .g-span-6 { grid-column: span 6; }
+      .g-span-3 { grid-column: span 3; }
+    }
+    @media (max-width: 640px){
+      .links { display: none; }
+      .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .title { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Marci Metzger, The Ridge Realty Group">
+        <!-- TIP: replace this with a round logo if available -->
+        <img class="logo" src="https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/blob-6c0c2e0.png/:/rs=w:1071,h:334,cg:true,m/cr=w:1071,h:334/qt=q:95" alt="Marci Metzger portrait"/>
+      </a>
+      <nav class="links" aria-label="Primary">
+        <a href="#listings">Listings</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta" href="tel:12069196886">Call 206‑919‑6886</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <span class="badge">Pahrump Realtor • Nearly 3 Decades</span>
+        <h1 class="title">Buy • Sell • Invest in <strong>Pahrump, NV</strong></h1>
+        <p class="sub">We helped nearly 90 clients in 2021 and closed $28.5M in sales. Our clients deserve our best, & we make sure our best is better every year.</p>
+        <div class="hero-cta">
+          <a class="cta" href="#listings">Browse Listings</a>
+          <a class="btn-secondary" href="https://wa.me/12069196886" target="_blank" rel="noopener">Message on WhatsApp</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>90+</b><span class="muted">Clients in 2021</span></div>
+          <div class="stat"><b>$28.5M</b><span class="muted">Closed Sales</span></div>
+          <div class="stat"><b>~30 yrs</b><span class="muted">Experience</span></div>
+        </div>
+      </div>
+      <div class="profile card">
+        <!-- HERO/PROFILE IMAGE  ➜ Replace with a preferred portrait or lifestyle photo from the original site -->
+        <img class="portrait" src="https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/photo-5db79f9.jpg/:/cr=t:14.65%25,l:0%25,w:100%25,h:66.64%25/rs=w:720,h:720,cg=true" alt="Realtor Marci Metzger"/>
+        <span class="tag">Marci Metzger • REALTOR®</span>
+      </div>
+    </div>
+
+   <div class="container" style="margin-top: 28px;text-align: center;">
+    <h2 class="title" style="margin-bottom: 20px;"><strong>Get It Sold</strong></h2>
+  <div class="card slider">
+
+    <div class="slides">
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <div class="slide-content">
+          <h3>Top Residential Sales Last 5 Years</h3>
+           <img src="https://img1.wsimg.com/isteam/stock/3395/:/cr=t:11.02%25,l:0%25,w:100%25,h:77.95%25/rs=w:600,h:300,cg:true/qt=q:23" alt="Top Residential Sales" class="slide-img">
+          <p>We helped nearly 90 clients in 2021, and closed 28.5 million in sales!
+            Our team works hard everyday to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, & we want to make sure our best is better every year.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="slide-content">
+          <h3>Don’t Just List it... Get it SOLD!</h3>
+          <img src="https://img1.wsimg.com/isteam/stock/107927/:/rs=w:600,h:300,cg:true,m/cr=w:600,h:300/qt=q:23" alt="Get It Sold" class="slide-img">
+          <p>We exhaust every avenue to ensure our listings are at the fingertips 
+          of every possible buyer, getting you top dollar for your home.</p>
+        </div>
+      </div>
+       <!-- Slide 3 -->
+      <div class="slide">
+        <div class="slide-content">
+          <h3>Guide to Buyers</h3>
+          <img src="https://img1.wsimg.com/isteam/stock/771/:/cr=t:5.36%25,l:1.76%25,w:96.47%25,h:89.29%25/rs=w:600,h:300,cg:true,m/qt=q:23" alt="Get It Sold" class="slide-img">
+          <p>Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis, upgrades lists, contractors on speed dial, & more!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider controls -->
+    <div class="controls">
+      <button class="prev">‹</button>
+      <button class="next">›</button>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <!-- Listings (static demo cards; wire to your IDX/MLS if available) -->
+  <section id="listings">
+    <div class="container">
+      <h2 class="section-title">Featured Listings</h2>
+      <p class="muted">Explore a few hand‑picked homes. Filter, save, and schedule a viewing when you’re ready.</p>
+      <div class="grid grid-3" style="margin-top: 14px;">
+        <article class="listing card">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop" alt="Listing exterior"/>
+          <div class="meta">
+            <span>3 Bed • 2 Bath • 1,850 sqft</span>
+            <span class="pill">$459,000</span>
+          </div>
+        </article>
+        <article class="listing card">
+          <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=1600&auto=format&fit=crop" alt="Modern kitchen"/>
+          <div class="meta">
+            <span>4 Bed • 3 Bath • 2,420 sqft</span>
+            <span class="pill">$559,000</span>
+          </div>
+        </article>
+        <article class="listing card">
+          <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop" alt="Backyard oasis"/>
+          <div class="meta">
+            <span>2 Bed • 2 Bath • 1,420 sqft</span>
+            <span class="pill">$339,000</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="grid grid-3" style="margin-top: 14px;">
+        <div class="service card">
+          <h3>Real Estate Done Right</h3>
+          <p class="muted">Whether buying or selling, our team ensures you get the best experience possible—transparent communication, local insight, and expert negotiation.</p>
+        </div>
+        <div class="service card">
+          <h3>Commercial & Residential</h3>
+          <p class="muted">Large or small, fixer‑upper or luxury—we’ll help you find the right property and the right price. We live, work, and play in this community.</p>
+        </div>
+        <div class="service card">
+          <h3>Rely on Expertise</h3>
+          <p class="muted">Questions about affordability, credit, or loans? We’ll connect you with trusted pros so you feel confident and informed at every step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Photo Gallery</h2>
+      <p class="muted">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse praesentium quaerat autem minus laborum maiores recusandae hic id repudiandae eum quisquam voluptates laboriosam, dolor harum, ab delectus odit obcaecati magni. <code>src</code>.</p>
+      <div class="grid gallery" style="margin-top: 14px;">
+        <!-- REPLACE each src below with the original site images to keep the exact same visuals -->
+        <img class="g-span-6 card" src="https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/5570%20Ailanto-14.jpg-SMALL.JPG/:/cr=t:0%25,l:0.05%25,w:99.9%25,h:99.9%25/rs=w:1023,h:681" alt="Gallery 1" />
+        <img class="g-span-3 card" src="https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/5570%20Ailanto-45.jpg-SMALL.JPG/:/rs=w:1023,h:681" alt="Gallery 2" />
+        <img class="g-span-3 card" src="https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/5570%20Ailanto-14.jpg-SMALL.JPG/:/cr=t:0%25,l:0.05%25,w:99.9%25,h:99.9%25/rs=w:1023,h:681" alt="Gallery 3" />
+        <img class="g-span-3 card" src="https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/4787%20E%20Beacon%20Ridge-54.jpg-SMALL.JPG/:/rs=w:1023,h:681" alt="Gallery 4" />
+        <img class="g-span-3 card" src="https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/4787%20E%20Beacon%20Ridge-41.jpg-SMALL.JPG/:/rs=w:1023,h:682" alt="Gallery 5" />
+        <img class="g-span-6 card" src="https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/5570%20Ailanto-50.jpg-SMALL.JPG/:/rs=w:1023,h:681" alt="Gallery 6" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container contact">
+      <div class="card">
+        <h2 class="section-title">Call or Visit</h2>
+        <p class="muted"><strong>Marci Metzger – THE RIDGE REALTY GROUP</strong><br>3190 HW‑160, Suite F, Pahrump, Nevada 89048, United States</p>
+        <p class="muted"><a href="tel:12069196886">(206) 919‑6886</a> • <a href="https://wa.me/12069196886" target="_blank" rel="noopener">WhatsApp</a></p>
+        <a class="btn-secondary" href="https://maps.google.com/?q=3190%20HW-160,%20Suite%20F,%20Pahrump,%20Nevada%2089048" target="_blank" rel="noopener">Get directions</a>
+      </div>
+      <div class="card">
+        <h2 class="section-title">Send a Message</h2>
+        <form id="contact-form" aria-label="Contact form">
+          <input type="text" name="name" placeholder="Name" aria-label="Name" required />
+          <input type="email" name="email" placeholder="Email*" aria-label="Email" required />
+          <select name="topic" aria-label="Topic">
+            <option value="Buy">Buying</option>
+            <option value="Sell">Selling</option>
+            <option value="Invest">Investing</option>
+          </select>
+          <textarea name="message" rows="5" placeholder="How can we help?" aria-label="Message"></textarea>
+          <button class="cta" type="submit">Send Message</button>
+        </form>
+        <p id="form-status" class="muted" role="status" style="margin-top:8px; display:none;">Thanks! We’ll reach out shortly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+        <p>© <span id="y"></span> Marci Metzger Homes. All Rights Reserved.</p>
+        <p>Open daily 8:00 am – 7:00 pm • Appointments available upon request</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth-scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        if (id && id.length > 1) {
+          const el = document.querySelector(id);
+          if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        }
+      });
+    });
+
+    // Simple client-side form handler (replace with your backend/email service)
+    const form = document.getElementById('contact-form');
+    const statusEl = document.getElementById('form-status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Demo only: show a message. Hook up to Formspree, Getform, or your API.
+      statusEl.style.display = 'block';
+      form.reset();
+    });
+
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+
+
+    const slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function showSlide(i) {
+  slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+}
+
+document.querySelector(".next").addEventListener("click", () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+});
+
+document.querySelector(".prev").addEventListener("click", () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+});
+  </script>
+
+
+</body>
+</html>
