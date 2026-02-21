@@ -1031,7 +1031,7 @@ will-change: transform;
     flex-wrap: wrap;
   }
 }
- 
+
 
 /* =================================
    MOBILE (≤ 768px)
@@ -1273,5 +1273,79 @@ will-change: transform;
   .show-more-btn {
     font-size: 12px;
     padding: 8px;
+  }
+}
+/* =================== CONTACT RESPONSIVE =================== */
+
+/* Tablet ≤ 1024px */
+@media (max-width: 1024px) {
+  .contact-section {
+    padding: 60px 40px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 40px; /* spacing between left and right */
+  }
+
+  .contact-left,
+  .contact-form {
+    flex: 1 1 100%;
+  }
+}
+
+/* Mobile ≤ 768px */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 50px 24px;
+  }
+
+  .contact-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .contact-form {
+    padding: 30px 20px;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .contact-form button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* Small Mobile ≤ 480px */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 40px 15px;
+  }
+
+  .contact-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .contact-form {
+    padding: 20px 15px;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .contact-form button {
+    font-size: 13px;
+    padding: 10px;
   }
 }
