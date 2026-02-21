@@ -80,7 +80,6 @@ backdrop-filter: blur(8px);
   min-height: calc(100vh + 120px);;
   position: relative;
   overflow: hidden;
-  padding: 20px;
 }
 
 /* LEFT SIDE */
@@ -123,6 +122,7 @@ backdrop-filter: blur(8px);
     text-align: center;
      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
       animation: fadeInUp 1s ease forwards;
+          padding: 25px;
 }
 .left .title{
       position: relative;
@@ -133,7 +133,6 @@ backdrop-filter: blur(8px);
     text-align: center;
      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
       animation: fadeInUp 1s ease forwards;
-      padding: 20px;
 }
 
 
