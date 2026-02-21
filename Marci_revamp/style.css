@@ -24,7 +24,7 @@ body {
     flex-wrap: wrap;
     position: fixed;
     width: 100%;
-    z-index: 5;
+    z-index: 9999;
     background: rgba(212, 192, 156, 0.92);
 backdrop-filter: blur(8px); 
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -35,13 +35,13 @@ backdrop-filter: blur(8px);
    height: clamp(60px, 8vw, 90px);
 }
 
-nav {
+.nav {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-nav a {
+.nav a {
   color: #111;
   font-weight: 600;
   text-decoration: none;
@@ -49,10 +49,10 @@ nav a {
   transition: color 0.3s ease;
   position: relative;
 }
-nav a:hover {
+.nav a:hover {
   color: #fff;
 }
-nav a::after {
+.nav a::after {
   content: '';
   position: absolute;
   width: 0%;
@@ -62,11 +62,11 @@ nav a::after {
   background: #fff;
   transition: width 0.3s;
 }
-nav a:hover::after {
+.nav a:hover::after {
   width: 100%;
 }
 /* Pulse animation for attention links */
-nav a.attention {
+.nav a.attention {
   animation: pulse 2s infinite;
 }
 @keyframes pulse {
@@ -155,6 +155,7 @@ nav a.attention {
   background-size: cover;      /* cover full area */
   background-position: center; /* center the image */
   transition: background-image 1s ease-in-out;
+  pointer-events: none; 
 }
 
 /* Search Bar */
@@ -614,6 +615,8 @@ will-change: transform;
 .feature-section {
   background: black;
   padding-bottom: 40px;
+   position: relative;
+  z-index: 2;
 
 }
 
@@ -672,6 +675,7 @@ will-change: transform;
   cursor: pointer;
   opacity: 0.6;
   transition: 0.3s;
+  pointer-events: auto;
 }
 
 .thumbnail-grid img:hover {
@@ -939,7 +943,7 @@ will-change: transform;
     z-index: 1001;
   }
 
-  nav {
+  .nav {
     position: absolute;
     top: 100%;
     right: 0;
@@ -954,19 +958,19 @@ will-change: transform;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
   }
 
-  nav.active {
+  .nav.active {
     max-height: 500px;
     padding: 20px 0;
   }
 
-  nav a {
+  .nav a {
     font-size: 20px;
     padding: 14px 0;
     width: 100%;
     text-align: center;
   }
 
-  nav a:hover {
+  .nav a:hover {
     background: rgba(0,0,0,0.05);
   }
 
@@ -1032,6 +1036,7 @@ will-change: transform;
   .about-card-glass {
     padding: 32px 24px;
   }
+  
 }
 
 /* =================================
