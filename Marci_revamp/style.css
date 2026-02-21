@@ -80,6 +80,7 @@ backdrop-filter: blur(8px);
   min-height: calc(100vh + 120px);;
   position: relative;
   overflow: hidden;
+  padding: 20px;
 }
 
 /* LEFT SIDE */
@@ -132,6 +133,7 @@ backdrop-filter: blur(8px);
     text-align: center;
      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
       animation: fadeInUp 1s ease forwards;
+      padding: 20px;
 }
 
 
@@ -557,6 +559,36 @@ select, input[type="range"] {
 
 .next {
   right: 10px;
+}
+.thumbnail-grid {
+  flex-direction: row; /* horizontal thumbnails */
+  gap: 10px;
+  overflow-x: auto;    /* scrollable */
+  padding-bottom: 10px;
+
+  /* scrollbar styling for Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #d4c09c #000; /* thumb color / track color */
+}
+
+/* Chrome, Edge, Safari */
+.thumbnail-grid::-webkit-scrollbar {
+  height: 8px; /* horizontal scrollbar height */
+}
+
+.thumbnail-grid::-webkit-scrollbar-track {
+  background: #000; /* track color */
+  border-radius: 4px;
+}
+
+.thumbnail-grid::-webkit-scrollbar-thumb {
+  background: #d4c09c; /* golden thumb */
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.thumbnail-grid::-webkit-scrollbar-thumb:hover {
+  background: #b89b5e; /* darker gold on hover */
 }
 /* ================= Company Logo SECTION ================= */
 .company-logo{
@@ -1059,5 +1091,188 @@ will-change: transform;
 
   .menu-toggle {
     transform: scale(0.95);
+  }
+}
+/* =================================
+   TABLET (≤ 1024px)
+================================= */
+@media (max-width: 1024px) {
+  .slider-wrapper {
+    width: 95%;
+    padding: 60px 10px;
+  }
+
+  .slide {
+    flex-direction: column; /* stack image + text */
+    gap: 30px;
+    padding: 30px 10px;
+  }
+
+  .slide img,
+  .slide-text {
+    width: 100%;
+  }
+
+  .slide-text h3 {
+    font-size: 24px;
+  }
+
+  .slide-text p {
+    font-size: 14px;
+  }
+}
+
+/* =================================
+   MOBILE (≤ 768px)
+================================= */
+@media (max-width: 768px) {
+  .slider-wrapper {
+    padding: 40px 10px;
+  }
+
+  .slide {
+    padding: 20px 5px;
+    gap: 20px;
+  }
+
+  .slide-text h3 {
+    font-size: 20px;
+  }
+
+  .slide-text p {
+    font-size: 13px;
+  }
+
+  .dots {
+    margin-top: 15px;
+  }
+
+  .arrow {
+    font-size: 26px;
+    padding: 8px 12px;
+  }
+}
+
+/* =================================
+   SMALL MOBILE (≤ 480px)
+================================= */
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 28px;
+    padding: 20px 0;
+  }
+
+  .slide-wrapper {
+    padding: 30px 5px;
+  }
+
+  .slide {
+    padding: 15px 5px;
+  }
+
+  .slide-text h3 {
+    font-size: 18px;
+  }
+
+  .slide-text p {
+    font-size: 12px;
+  }
+
+  .arrow {
+    font-size: 22px;
+    padding: 6px 10px;
+  }
+
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+  }
+}
+/* =================================
+   TABLET AND MOBILE FIXES
+================================= */
+
+/* Tablet ≤1024px */
+@media (max-width: 1024px) {
+  .feature-container {
+    flex-direction: column; /* stack main image + thumbnails */
+    gap: 20px;
+    padding: 0 20px 30px;
+  }
+
+  .main-display {
+    width: 100%;
+    flex: none;
+  }
+
+  .thumbnail-grid {
+    flex-direction: row; /* thumbnails go horizontal */
+    gap: 10px;
+    overflow-x: auto;    /* scrollable if too many thumbnails */
+    padding-bottom: 10px;
+  }
+
+  .thumbnail-grid img {
+    flex: 0 0 auto;
+    height: 100px;
+    cursor: pointer;
+  }
+
+  .show-more-btn {
+    width: 100%;
+    margin-top: 10px;
+    display: block;       /* ensure visible */
+  }
+}
+
+/* Mobile ≤768px */
+@media (max-width: 768px) {
+  .feature-title {
+    font-size: 30px;
+    padding: 15px 20px;
+  }
+
+  .listing-info {
+    font-size: 13px;
+    padding: 15px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .thumbnail-grid img {
+    height: 80px;
+  }
+
+  .show-more-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Small Mobile ≤480px */
+@media (max-width: 480px) {
+  .feature-title {
+    font-size: 24px;
+    padding: 10px 15px;
+    text-align: center;
+  }
+
+  .listing-info {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .thumbnail-grid {
+    gap: 8px;
+  }
+
+  .thumbnail-grid img {
+    height: 60px;
+  }
+
+  .show-more-btn {
+    font-size: 12px;
+    padding: 8px;
   }
 }
